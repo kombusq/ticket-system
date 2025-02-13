@@ -1,7 +1,7 @@
 // src/firebase/firebase-config.js
 
 import { initializeApp } from 'firebase/app';
-import { getAuth } from 'firebase/auth';
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { getFirestore } from 'firebase/firestore';
 import { getStorage } from 'firebase/storage';
 
@@ -12,9 +12,10 @@ const firebaseConfig = {
   projectId: "ticket-system-442de",
   storageBucket: "ticket-system-442de.firebasestorage.app",
   messagingSenderId: "580016137624",
-  appId: "1:580016137624:web:a91db0527140a02f3eb7ed",
-  measurementId: "G-9HBGTFN195"
+  appId: "1:580016137624:web:1f210de9f9adae7c3eb7ed",
+  measurementId: "G-NY7ME7C0KJ"
 };
+
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
@@ -23,4 +24,4 @@ const auth = getAuth(app);
 const db = getFirestore(app);
 const storage = getStorage(app);
 
-export { auth, db, storage };
+export { auth, db, storage, signInWithEmailAndPassword};

@@ -1,6 +1,5 @@
-// src/App.js
 import React from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext';
 import PrivateRoute from './components/Auth/PrivateRoute';
 import Login from './components/Auth/Login';
@@ -14,13 +13,20 @@ const App = () => {
       <Router>
         <Sidebar />
         
-          <Route exact path="/" component={Login} />
-          <PrivateRoute path="/dashboard" component={SupportDashboard} />
-          <PrivateRoute path="/submit-ticket" component={TicketSubmissionForm} />
-        
+        <Routes>
+          {/* Route for login */}
+          <Route path="/login" element={<Login />} />
+          
+          {/* Private routes wrapped with PrivateRoute */}
+          <Route element={<PrivateRoute />}>
+            <Route path="/dashboard" element={<SupportDashboard />} />
+            <Route path="/submit-ticket" element={<TicketSubmissionForm />} />
+          </Route>
+        </Routes>
       </Router>
     </AuthProvider>
   );
 };
 
 export default App;
+

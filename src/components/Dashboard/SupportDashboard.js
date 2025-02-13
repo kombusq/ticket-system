@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { db } from '../../firebase/firebase-config';
 import '../../styles/main.css';
 
-const SupportDashboard = () => {
+export default function SupportDashboard () {
   const [tickets, setTickets] = useState([]);
 
   useEffect(() => {
@@ -56,5 +56,5 @@ const SupportDashboard = () => {
   );
 };
 
-export default SupportDashboard;
+
     

@@ -1,10 +1,10 @@
 
 import React, { useState } from 'react';
-import { auth } from '../../firebase/firebase-config';
+import { auth,signInWithEmailAndPassword } from '../../firebase/firebase-config';
 import {  useNavigate } from 'react-router-dom';
 import '../../styles/main.css';
 
-const Login = () => {
+export default function Login ()  {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const history = useNavigate();
@@ -12,7 +12,7 @@ const Login = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      await auth.signInWithEmailAndPassword(email, password);
+      await signInWithEmailAndPassword(email, password);
       history.push('/dashboard');
     } catch (error) {
       alert(error.message);
@@ -43,5 +43,5 @@ const Login = () => {
   );
 };
 
-export default Login;
+
     
